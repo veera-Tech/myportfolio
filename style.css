@@ -1,0 +1,498 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  scroll-behavior: smooth;
+}
+body {
+  background-color: color-mix(in lab, black 100%, blue 10%);
+  color: white;
+  scroll-behavior: smooth;
+}
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  animation: slide-from-top 1s ease-out;
+}
+@keyframes slide-from-top {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.navbar-txt {
+  font-size: 40px;
+  font-weight: 100;
+  padding: 40px;
+}
+.navbar-txt span {
+  color: purple;
+}
+.navbar-nav a {
+  position: relative;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  margin: 35px;
+  padding: 5px 0;
+  transition: color 0.3s ease;
+}
+.navbar-nav a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 3px;
+  background-color: purple;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+/* Hover Effect */
+.navbar-nav a:hover::after {
+  width: 100%;
+}
+.navbar-nav a:hover {
+  color: purple;
+  scale: 1.05;
+}
+.navbar-nav {
+  gap: 50px;
+}
+.header {
+  text-align: center;
+  align-items: center;
+  margin-top: 120px;
+}
+.header h1 {
+  font-size: 60px;
+  margin-right: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: bold;
+  border-radius: 10px;
+
+  transform: translateX(-100%);
+  animation: slideIn 2s ease-out forwards;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+.header span {
+  color: purple;
+}
+.header p {
+  margin-top: 30px;
+  font-size: 40px;
+  color: blueviolet;
+  animation: slide-in 1s ease-out;
+}
+@keyframes slide-in {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.header button {
+  margin-top: 60px;
+  padding: 15px;
+  border-radius: 5px;
+  background: none;
+  color: white;
+  animation: slide-from-bottom 1s ease-out;
+}
+@keyframes slide-from-bottom {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.header button:hover {
+  cursor: pointer;
+  transition: 1s;
+  scale: 1.05;
+  transition-duration: 200;
+}
+.about {
+  padding: 40px;
+  margin-top: 100px;
+  margin-left: 50px;
+  font-size: 40px;
+  font-weight: 100;
+  color: rgb(159, 2, 159);
+}
+.self {
+  font-weight: 200;
+  margin-left: 80px;
+  display: flex;
+  gap: 70px;
+  align-items: center;
+  margin-top: 60px;
+}
+
+.me {
+  height: 400px;
+  width: 400px;
+  border-radius: 5px;
+  transform: translateX(-100%);
+  animation: slideIn;
+  animation-timeline: view();
+}
+.intro {
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  gap: 50px;
+  color: rgb(171, 167, 167);
+  animation: appear linear;
+  animation-timeline: view();
+  animation-range: entry 0;
+}
+@keyframes appear {
+  from {
+    opacity: 0;
+    scale: 0.5;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+.heading {
+  font-size: 2.5rem;
+  text-align: center;
+  margin: 5rem 0;
+}
+.heading span {
+  color: purple;
+}
+.education {
+  padding: 20px 15px;
+  animation: appear linear;
+  animation-timeline: view();
+  animation-range: entry 0;
+}
+.education h2 {
+  margin-bottom: 5rem;
+}
+.timeline-items {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+}
+.timeline-items::before {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 100%;
+  background-color: purple;
+  left: calc(50% - 1px);
+}
+.timeline-item {
+  margin-bottom: 40px;
+  width: 100%;
+  position: relative;
+}
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+.timeline-item:nth-child(odd) {
+  padding-right: calc(50% + 30px);
+  text-align: right;
+}
+.timeline-item:nth-child(even) {
+  padding-left: calc(50% + 30px);
+}
+.timeline-dot {
+  height: 21px;
+  width: 21px;
+  background-color: purple;
+  box-shadow: 0 0 25px purple, 0 0 50px purple;
+  position: absolute;
+  left: calc(50% - 8px);
+  border-radius: 50%;
+  top: 10px;
+}
+.timeline-date {
+  font-size: 20px;
+  font-weight: 800;
+  margin: 6px 0 15px;
+}
+.timeline-content {
+  border: 3px solid blueviolet;
+  padding: 30px 50px;
+  border-radius: 4rem;
+  box-shadow: 0 0 10px purple;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+.timeline-content:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25 purple;
+}
+.timeline-content h3 {
+  font-size: 20px;
+  color: white;
+  margin: 0 0 10px;
+  font-weight: 500;
+}
+.timeline-content p {
+  color: white;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 22px;
+}
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: blueviolet;
+}
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.skils {
+  padding: 20px;
+  margin-top: 30px;
+  font-size: 35px;
+  text-align: center;
+}
+
+.logos-slide {
+  display: inline-block;
+  animation: 16s slide infinite linear;
+}
+.logos-slide img {
+  height: 50px;
+  margin: 0 40px;
+}
+
+.logos:hover .logos-slide {
+  animation-play-state: paused;
+}
+.logos {
+  padding: 60px 0;
+  background: transparent;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+}
+.logos::before,
+.logos::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100px;
+  content: "";
+  z-index: 2;
+}
+.logos::before {
+  left: 0;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0));
+}
+.logos::after {
+  right: 0;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0));
+}
+.logos img:hover {
+  transform: scale(1.25);
+  animation-duration: 300;
+  transition: 1s;
+  cursor: pointer;
+}
+.projects {
+  padding: 20px;
+  text-align: center;
+  font-size: 35px;
+  font-weight: 800;
+}
+.projects span {
+  color: purple;
+}
+.work-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 40px;
+  margin-top: 50px;
+  color: #ababab;
+  justify-content: space-between;
+}
+.work {
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  padding: 15px;
+  cursor: pointer;
+  animation: slide-in 1s ease-out;
+  animation-timeline: view();
+  animation-range: entry 0%;
+  animation-duration: 5s;
+}
+.work img {
+  width: 100%;
+  border-radius: 10px;
+  display: block;
+  transition: transform 0.5s;
+}
+.layer {
+  width: 100%;
+  height: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), blueviolet);
+  border-radius: 10px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  font-size: 14px;
+  transition: height 0.5s;
+}
+.layer h3 {
+  font-weight: 500px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.work:hover img {
+  transform: scale(1.1);
+}
+.work:hover .layer {
+  height: 100%;
+}
+footer {
+  width: 100%;
+  bottom: 0;
+  background: linear-gradient(to right, #00093c, #2d0b00);
+  color: #fff;
+  padding: 100px 0 30px;
+  border-top-left-radius: 125px;
+  font-size: 13px;
+  line-height: 20px;
+  margin-top: 100px;
+  animation: appear linear;
+  animation-timeline: view();
+  animation-range: entry 0;
+}
+.row {
+  width: 85%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.col {
+  flex-basis: 20%;
+  padding: 10px;
+}
+.col:nth-child(2),
+.col:nth-child(3) {
+  flex-basis: 15%;
+}
+.logo {
+  width: 80px;
+  margin-bottom: 30px;
+}
+.col h3 {
+  width: fit-content;
+  margin-bottom: 40px;
+  position: relative;
+}
+.email-id {
+  width: fit-content;
+  border-bottom: 1px solid #ccc;
+  margin: 20px 0;
+}
+ul li {
+  list-style: none;
+  margin-bottom: 12px;
+}
+ul li a {
+  text-decoration: none;
+  color: white;
+}
+.social-icons .fab {
+  text-align: center;
+  line-height: 40px;
+  font-size: 20px;
+  cursor: pointer;
+  margin-right: 15px;
+}
+hr {
+  width: 90%;
+  border: 1;
+  border-bottom: 1px;
+  margin: 20px auto;
+}
+.copywrite {
+  text-align: center;
+}
+.underline {
+  width: 100%;
+  height: 5px;
+  background: #767676;
+  border-radius: 3px;
+  position: absolute;
+  top: 25px;
+  left: 0;
+  overflow: hidden;
+}
+.underline span {
+  width: 15px;
+  height: 100%;
+  background-color: #fff;
+  border-radius: 3px;
+  position: absolute;
+  top: 0;
+  left: 10px;
+  animation: moving 2s linear infinite;
+}
+@keyframes moving {
+  0% {
+    left: -20px;
+  }
+  100% {
+    left: 100%;
+  }
+}
+.logo {
+  color: purple;
+}
+.col h3 {
+  color: purple;
+}
